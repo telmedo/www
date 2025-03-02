@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telmedo - Teleporada i dostawa leków</title>
+    <title>Telmedo - Teleporada i leki w jednym miejscu</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/forms.css">
-    <link rel="stylesheet" href="css/pharmacy.css">
+    <link rel="stylesheet" href="css/cards.css">
 </head>
 <body>
     <header>
@@ -23,10 +23,10 @@
                     Telmedo
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#how-it-works">Jak to działa</a></li>
-                    <li><a href="#consultation">Teleporada</a></li>
-                    <li><a href="#pharmacies">Apteki</a></li>
-                    <li><a href="#contact">Kontakt</a></li>
+                    <li><a href="#teleporada">Teleporada</a></li>
+                    <li><a href="#leki">Zamów leki</a></li>
+                    <li><a href="#historia">Historia</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
                 </ul>
             </nav>
         </div>
@@ -37,283 +37,235 @@
             <div class="hero-content">
                 <h1>Teleporada i leki <br>w jednym miejscu</h1>
                 <p class="motto">Zdrowie na wyciągnięcie ręki.</p>
-                <p class="hero-subtitle">Od konsultacji lekarskiej do dostawy leków z lokalnych aptek - wszystko w jednym miejscu.</p>
-                <a href="#consultation" class="cta-button">Umów teleporadę</a>
+                <p class="hero-subtitle">Wybierz czego potrzebujesz już teraz:</p>
+                <div class="hero-buttons">
+                    <a href="#lekarz" class="cta-button">Konsultacja z lekarzem</a>
+                    <a href="#leki" class="cta-button cta-button-alt">Zamów leki</a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="how-it-works" id="how-it-works">
+    <!-- Sekcja szybkiego wyboru -->
+    <section class="quick-actions" id="lekarz">
         <div class="container">
-            <h2 class="section-title">Jak działa Telmedo?</h2>
-            <p class="section-subtitle">Prosty proces w 4 krokach, od konsultacji medycznej do dostawy leków pod Twoje drzwi</p>
+            <h2 class="section-title">Konsultacja z lekarzem</h2>
+            <p class="section-subtitle">Wybierz specjalistę i uzyskaj szybką pomoc</p>
             
-            <div class="steps">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <div class="step-icon">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 10C20 14.4183 16.4183 18 12 18C7.58172 18 4 14.4183 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10Z" stroke="#2E86AB" stroke-width="2"/>
-                            <path d="M12 14V10" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M12 6H12.01" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M8 22H16" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M9 18L9 22" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
-                            <path d="M15 18L15 22" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title">Opisz problem</h3>
-                    <p>Opisz swoje dolegliwości i wybierz dogodny termin teleporady na naszej stronie.</p>
+            <div class="scroll-container">
+                <div class="doctor-cards">
+                    <!-- Karty lekarzy będą generowane przez JavaScript -->
                 </div>
-                
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <div class="step-icon">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.1196 14.702L14.3293 18.4923C13.9436 18.8781 13.377 19.0712 12.8031 19.0141C12.2292 18.9571 11.7058 18.6566 11.3675 18.1847L5.01913 9.36954C4.68085 8.89766 4.57437 8.30193 4.73088 7.7459C4.88739 7.18987 5.28806 6.72717 5.8254 6.47326L7.08855 5.84142C7.59253 5.60359 8.1707 5.58168 8.69191 5.78081L11.0696 6.68156C11.109 6.69727 11.1533 6.69955 11.1945 6.68803C11.2358 6.67651 11.272 6.65178 11.2975 6.61725L12.9377 4.33078C13.2947 3.81965 13.8526 3.48944 14.4681 3.4215C15.0836 3.35357 15.6928 3.55425 16.1467 3.97478L16.8974 4.72554C17.2621 5.09033 17.4813 5.58052 17.5182 6.10092C17.5551 6.62132 17.4073 7.13916 17.1026 7.55246L15.9338 9.14977C15.8903 9.20769 15.8678 9.27981 15.8703 9.35372C15.8728 9.42764 15.9001 9.49817 15.9472 9.55264L18.2389 12.3281C18.684 12.8637 18.8791 13.5555 18.7679 14.2345C18.6568 14.9136 18.2503 15.5128 17.6557 15.8776L18.1196 14.702Z" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9 11.5L12.2672 15.5" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title">Konsultacja</h3>
-                    <p>Połącz się z lekarzem przez wideorozmowę i otrzymaj profesjonalną diagnozę oraz e-receptę jeśli to konieczne.</p>
+            </div>
+            
+            <div class="time-slots-container" style="display: none;">
+                <h3>Wybierz termin konsultacji</h3>
+                <div class="date-selector">
+                    <button class="date-button active" data-date="today">Dzisiaj</button>
+                    <button class="date-button" data-date="tomorrow">Jutro</button>
+                    <button class="date-button" data-date="day-after">Pojutrze</button>
                 </div>
-                
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <div class="step-icon">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.5 5.5L18 12H6L4.5 5.5" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M3 3H5L6 7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 12L5.6 14.5C5.46091 15.4403 5.39136 15.9105 5.53451 16.2765C5.65879 16.596 5.88125 16.8637 6.17 17.0407C6.50281 17.25 6.97932 17.25 7.93233 17.25H16.0677C17.0207 17.25 17.4972 17.25 17.83 17.0407C18.1188 16.8637 18.3412 16.596 18.4655 16.2765C18.6086 15.9105 18.5391 15.4403 18.4 14.5L18 12" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9.5 10V9.25C9.5 8.00736 10.5074 7 11.75 7V7C12.9926 7 14 8.00736 14 9.25V10" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M19 7L21 3" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M16 20.5C16 21.3284 15.3284 22 14.5 22C13.6716 22 13 21.3284 13 20.5C13 19.6716 13.6716 19 14.5 19C15.3284 19 16 19.6716 16 20.5Z" stroke="#2E86AB" stroke-width="2"/>
-                            <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke="#2E86AB" stroke-width="2"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title">Wybór apteki</h3>
-                    <p>Wybierz lokalną aptekę z naszej sieci partnerskiej i zamów leki bezpośrednio przez stronę.</p>
+                <div class="time-slots">
+                    <!-- Sloty czasowe będą generowane przez JavaScript -->
                 </div>
-                
-                <div class="step-card">
-                    <div class="step-number">4</div>
-                    <div class="step-icon">
-                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 13L9 17L19 7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M13 17H21V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <h3 class="step-title">Dostawa</h3>
-                    <p>Odbierz leki z dostawą pod drzwi w ciągu 60 minut lub wybierz odbiór osobisty w wybranej aptece.</p>
-                </div>
+                <button class="cta-button book-appointment" disabled>Umów teleporadę</button>
             </div>
         </div>
     </section>
 
-    <section class="consultation-form" id="consultation">
+    <!-- Sekcja zamawiania leków -->
+    <section class="medicine-section" id="leki">
         <div class="container">
-            <h2 class="section-title">Umów teleporadę</h2>
-            <p class="section-subtitle">Wypełnij formularz, aby umówić konsultację z lekarzem</p>
+            <h2 class="section-title">Zamów leki</h2>
+            <p class="section-subtitle">Szybka dostawa z najbliższych aptek</p>
             
-            <div class="form-container">
-                <div class="steps-indicator">
-                    <div class="step-indicator active" id="step-indicator-1">
-                        <div class="step-number">1</div>
-                        <div class="step-text">Dane osobowe</div>
+            <div id="location-request" class="location-card">
+                <p>Aby znaleźć najbliższe apteki, potrzebujemy dostępu do Twojej lokalizacji</p>
+                <button id="share-location" class="cta-button">Udostępnij lokalizację</button>
+            </div>
+            
+            <div id="medicine-options" style="display: none;">
+                <div class="option-tabs">
+                    <button class="tab-button active" data-tab="prescription">Leki na receptę</button>
+                    <button class="tab-button" data-tab="otc">Leki bez recepty</button>
+                </div>
+                
+                <div id="prescription-panel" class="tab-panel active">
+                    <div class="form-group">
+                        <label for="prescription-code">Kod recepty</label>
+                        <input type="text" id="prescription-code" class="form-control" placeholder="np. 1234-5678-9101-1121">
                     </div>
-                    <div class="step-indicator" id="step-indicator-2">
-                        <div class="step-number">2</div>
-                        <div class="step-text">Opis dolegliwości</div>
-                    </div>
-                    <div class="step-indicator" id="step-indicator-3">
-                        <div class="step-number">3</div>
-                        <div class="step-text">Termin konsultacji</div>
+                    <div class="prescription-cards">
+                        <!-- Historia recept będzie generowana przez JavaScript -->
                     </div>
                 </div>
                 
-                <form id="consultation-form">
-                    <div class="form-step active" id="step-1">
-                        <div class="form-row">
-                            <div class="form-col">
-                                <div class="form-group">
-                                    <label for="first-name">Imię</label>
-                                    <input type="text" id="first-name" class="form-control" required>
-                                </div>
-                            </div>
-                            <div class="form-col">
-                                <div class="form-group">
-                                    <label for="last-name">Nazwisko</label>
-                                    <input type="text" id="last-name" class="form-control" required>
-                                </div>
-                            </div>
+                <div id="otc-panel" class="tab-panel">
+                    <div class="form-group">
+                        <label for="medicine-search">Wyszukaj lek</label>
+                        <input type="text" id="medicine-search" class="form-control" placeholder="np. Paracetamol, Ibuprom">
+                    </div>
+                    <div class="medicine-categories">
+                        <div class="category">
+                            <img src="img/category-pain.jpg" alt="Ból">
+                            <span>Ból</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Adres e-mail</label>
-                            <input type="email" id="email" class="form-control" required>
+                        <div class="category">
+                            <img src="img/category-cold.jpg" alt="Przeziębienie">
+                            <span>Przeziębienie</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Numer telefonu</label>
-                            <input type="tel" id="phone" class="form-control" required>
+                        <div class="category">
+                            <img src="img/category-allergy.jpg" alt="Alergia">
+                            <span>Alergia</span>
                         </div>
-                        
-                        <div class="form-navigation">
-                            <div></div> <!-- Empty div for flex spacing -->
-                            <button type="button" class="btn-next" id="to-step-2">Dalej</button>
+                        <div class="category">
+                            <img src="img/category-stomach.jpg" alt="Układ trawienny">
+                            <span>Układ trawienny</span>
+                        </div>
+                        <div class="category">
+                            <img src="img/category-vitamins.jpg" alt="Witaminy">
+                            <span>Witaminy</span>
                         </div>
                     </div>
-                    
-                    <div class="form-step" id="step-2">
-                        <div class="form-group">
-                            <label for="symptoms">Opis dolegliwości</label>
-                            <textarea id="symptoms" class="form-control" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="duration">Od jak dawna występują objawy?</label>
-                            <select id="duration" class="form-control" required>
-                                <option value="">Wybierz</option>
-                                <option value="today">Od dzisiaj</option>
-                                <option value="few-days">Od kilku dni</option>
-                                <option value="week">Od tygodnia</option>
-                                <option value="few-weeks">Od kilku tygodni</option>
-                                <option value="month">Od miesiąca</option>
-                                <option value="longer">Dłużej niż miesiąc</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="medical-history">Historia medyczna (opcjonalnie)</label>
-                            <textarea id="medical-history" class="form-control"></textarea>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="btn-prev" id="back-to-step-1">Wstecz</button>
-                            <button type="button" class="btn-next" id="to-step-3">Dalej</button>
+                    <div class="popular-medicines">
+                        <h3>Popularne leki</h3>
+                        <div class="medicine-cards">
+                            <!-- Karty popularnych leków będą generowane przez JavaScript -->
                         </div>
                     </div>
-                    
-                    <div class="form-step" id="step-3">
-                        <div class="form-group">
-                            <label for="appointment-date">Preferowana data konsultacji</label>
-                            <input type="date" id="appointment-date" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="appointment-time">Preferowana godzina konsultacji</label>
-                            <select id="appointment-time" class="form-control" required>
-                                <option value="">Wybierz</option>
-                                <option value="9:00">9:00</option>
-                                <option value="10:00">10:00</option>
-                                <option value="11:00">11:00</option>
-                                <option value="12:00">12:00</option>
-                                <option value="13:00">13:00</option>
-                                <option value="14:00">14:00</option>
-                                <option value="15:00">15:00</option>
-                                <option value="16:00">16:00</option>
-                                <option value="17:00">17:00</option>
-                                <option value="18:00">18:00</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="doctor-specialization">Specjalizacja lekarza</label>
-                            <select id="doctor-specialization" class="form-control" required>
-                                <option value="">Wybierz</option>
-                                <option value="internist">Internista</option>
-                                <option value="pediatrician">Pediatra</option>
-                                <option value="dermatologist">Dermatolog</option>
-                                <option value="allergist">Alergolog</option>
-                                <option value="cardiologist">Kardiolog</option>
-                                <option value="neurologist">Neurolog</option>
-                                <option value="other">Inna specjalizacja</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-navigation">
-                            <button type="button" class="btn-prev" id="back-to-step-2">Wstecz</button>
-                            <button type="submit" class="submit-btn">Umów teleporadę</button>
-                        </div>
-                    </div>
-                </form>
-                
-                <div class="confirmation-section" id="consultation-confirmation">
-                    <h3 class="confirmation-title">Teleporada została umówiona!</h3>
-                    <div class="confirmation-details">
-                        <p>Twoja teleporada została zaplanowana na <span class="appointment-time" id="confirmation-time"></span>.</p>
-                        <p>Na podany adres e-mail wysłaliśmy potwierdzenie wraz z linkiem do wideorozmowy.</p>
-                        <p>Przed konsultacją otrzymasz również przypomnienie SMS.</p>
-                    </div>
-                    <h4>Co dalej?</h4>
-                    <p>Po konsultacji, jeśli lekarz przepisze Ci leki, będziesz mógł zamówić je z wybranej apteki bezpośrednio przez naszą stronę.</p>
-                    <div style="text-align: center; margin-top: 2rem;">
-                        <a href="#pharmacies" class="cta-button">Przeglądaj apteki partnerskie</a>
-                    </div>
+                </div>
+            </div>
+            
+            <div id="nearby-pharmacies" style="display: none;">
+                <h3>Najbliższe apteki</h3>
+                <div class="pharmacy-cards">
+                    <!-- Karty aptek będą generowane przez JavaScript -->
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="pharmacy-section" id="pharmacies">
+    <!-- Sekcja historii -->
+    <section class="history-section" id="historia">
         <div class="container">
-            <h2 class="section-title">Apteki partnerskie</h2>
-            <p class="section-subtitle">Zamów leki z dostawą lub do odbioru osobistego</p>
+            <h2 class="section-title">Twoja historia</h2>
+            <p class="section-subtitle">Przeglądaj swoje teleporady i zamówione leki</p>
             
-            <div class="form-container">
-                <div class="form-group">
-                    <label for="postcode">Wprowadź kod pocztowy, aby znaleźć apteki w Twojej okolicy</label>
-                    <div style="display: flex; gap: 1rem;">
-                        <input type="text" id="postcode" class="form-control" placeholder="np. 00-001">
-                        <button type="button" class="btn-next" id="search-pharmacies">Szukaj</button>
-                    </div>
+            <div class="option-tabs">
+                <button class="tab-button active" data-tab="teleporada-history">Teleporady</button>
+                <button class="tab-button" data-tab="medicine-history">Leki</button>
+            </div>
+            
+            <div id="teleporada-history-panel" class="tab-panel active">
+                <div class="history-empty" style="display: none;">
+                    <p>Nie masz jeszcze żadnych teleporad w historii</p>
+                    <a href="#lekarz" class="cta-button">Umów pierwszą teleporadę</a>
                 </div>
-                
-                <div class="pharmacy-list" id="pharmacy-list" style="display: none;">
-                    <!-- Lista aptek zostanie dodana dynamicznie przez JavaScript -->
+                <div class="history-list">
+                    <!-- Historia teleporad będzie generowana przez JavaScript -->
                 </div>
-                
-                <div class="form-group" id="pharmacy-selection" style="display: none; margin-top: 2rem;">
-                    <label for="prescription">Masz e-receptę?</label>
-                    <select id="prescription" class="form-control">
-                        <option value="yes">Tak, mam e-receptę</option>
-                        <option value="no">Nie, chcę kupić leki bez recepty</option>
-                    </select>
+            </div>
+            
+            <div id="medicine-history-panel" class="tab-panel">
+                <div class="history-empty" style="display: none;">
+                    <p>Nie masz jeszcze żadnych leków w historii</p>
+                    <a href="#leki" class="cta-button">Zamów pierwsze leki</a>
                 </div>
-                
-                <div class="form-group" id="delivery-option" style="display: none; margin-top: 1rem;">
-                    <label for="delivery-method">Sposób odbioru</label>
-                    <select id="delivery-method" class="form-control">
-                        <option value="delivery">Dostawa pod wskazany adres</option>
-                        <option value="pickup">Odbiór osobisty w aptece</option>
-                    </select>
-                </div>
-                
-                <div class="form-group" id="delivery-address" style="display: none; margin-top: 1rem;">
-                    <label for="address">Adres dostawy</label>
-                    <input type="text" id="address" class="form-control" placeholder="Ulica, numer domu/mieszkania">
-                </div>
-                
-                <div class="form-group" id="order-button" style="display: none; text-align: center; margin-top: 2rem;">
-                    <button type="button" class="submit-btn" id="place-order">Zamów</button>
+                <div class="history-list">
+                    <!-- Historia leków będzie generowana przez JavaScript -->
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="modal" id="success-modal">
+    <!-- Modal potwierdzenia teleporady -->
+    <div class="modal" id="teleporada-modal">
         <div class="modal-content">
-            <span class="close-modal" id="close-modal">&times;</span>
-            <div class="success-icon">✓</div>
-            <h2 style="text-align: center; margin-bottom: 1rem;">Zamówienie złożone!</h2>
-            <p style="text-align: center;">Twoje zamówienie zostało przyjęte do realizacji.</p>
-            <p style="text-align: center; margin-top: 1rem;">Leki zostaną dostarczone pod wskazany adres w ciągu 60 minut.</p>
-            <div style="text-align: center; margin-top: 2rem;">
-                <button type="button" class="cta-button" id="close-success">Zamknij</button>
+            <span class="close-modal">&times;</span>
+            <h2>Potwierdzenie teleporady</h2>
+            <div class="confirmation-details">
+                <p><strong>Lekarz:</strong> <span id="doctor-name-confirm"></span></p>
+                <p><strong>Specjalizacja:</strong> <span id="doctor-specialization-confirm"></span></p>
+                <p><strong>Termin:</strong> <span id="appointment-time-confirm"></span></p>
             </div>
+            <div class="form-group">
+                <label for="patient-name">Twoje imię i nazwisko</label>
+                <input type="text" id="patient-name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="patient-phone">Numer telefonu</label>
+                <input type="tel" id="patient-phone" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="patient-email">Adres email</label>
+                <input type="email" id="patient-email" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="patient-symptoms">Opis dolegliwości</label>
+                <textarea id="patient-symptoms" class="form-control" required></textarea>
+            </div>
+            <button id="confirm-teleporada" class="cta-button">Potwierdzam</button>
         </div>
     </div>
 
-    <footer id="contact">
+    <!-- Modal potwierdzenia zamówienia leków -->
+    <div class="modal" id="medicine-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Potwierdzenie zamówienia</h2>
+            <div class="confirmation-details">
+                <p><strong>Apteka:</strong> <span id="pharmacy-name-confirm"></span></p>
+                <p><strong>Adres apteki:</strong> <span id="pharmacy-address-confirm"></span></p>
+                <div id="medicine-list-confirm" class="medicine-list-confirm">
+                    <!-- Lista leków zostanie wygenerowana przez JavaScript -->
+                </div>
+                <p class="total-price">Razem: <span id="total-price">0.00</span> zł</p>
+            </div>
+            <div class="form-group">
+                <label for="delivery-option">Sposób otrzymania leków</label>
+                <select id="delivery-option" class="form-control">
+                    <option value="delivery">Dostawa pod wskazany adres</option>
+                    <option value="pickup">Odbiór osobisty w aptece</option>
+                </select>
+            </div>
+            <div id="delivery-address-form">
+                <div class="form-group">
+                    <label for="customer-name">Imię i nazwisko</label>
+                    <input type="text" id="customer-name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-phone">Numer telefonu</label>
+                    <input type="tel" id="customer-phone" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="customer-address">Adres dostawy</label>
+                    <input type="text" id="customer-address" class="form-control" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="payment-method">Metoda płatności</label>
+                <select id="payment-method" class="form-control">
+                    <option value="card">Karta przy odbiorze</option>
+                    <option value="cash">Gotówka przy odbiorze</option>
+                    <option value="online">Płatność online</option>
+                </select>
+            </div>
+            <button id="confirm-order" class="cta-button">Zamawiam</button>
+        </div>
+    </div>
+
+    <!-- Modal sukcesu -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="success-icon">✓</div>
+            <h2 id="success-title">Operacja zakończona pomyślnie!</h2>
+            <p id="success-message">Dziękujemy za skorzystanie z naszych usług.</p>
+            <button id="close-success" class="cta-button">Zamknij</button>
+        </div>
+    </div>
+
+    <footer id="kontakt">
         <div class="container">
             <div class="footer-container">
                 <div class="footer-col">
@@ -327,10 +279,10 @@
                 <div class="footer-col">
                     <h3>Usługi</h3>
                     <ul>
-                        <li><a href="#consultation">Teleporady</a></li>
-                        <li><a href="#pharmacies">Zamówienie leków</a></li>
-                        <li><a href="#">E-recepty</a></li>
-                        <li><a href="#">Przypomnij o lekach</a></li>
+                        <li><a href="#lekarz">Teleporady</a></li>
+                        <li><a href="#leki">Zamówienie leków</a></li>
+                        <li><a href="#historia">Historia wizyt</a></li>
+                        <li><a href="#">Przypomnienia o lekach</a></li>
                     </ul>
                 </div>
                 
@@ -362,8 +314,11 @@
     </footer>
 
     <!-- Skrypty JS -->
-    <script src="js/form.js"></script>
-    <script src="js/pharmacy.js"></script>
+    <script src="js/cookies.js"></script>
+    <script src="js/doctors.js"></script>
+    <script src="js/medicines.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/history.js"></script>
     <script src="js/modal.js"></script>
 </body>
 </html>
