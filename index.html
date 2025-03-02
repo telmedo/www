@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telmedo - Teleporada i dostawa leków</title>
+    <style>
+        :root {
+            --primary: #2E86AB;
+            --secondary: #24305E;
+            --accent: #F76C6C;
+            --light: #F8F8F8;
+            --dark: #333333;
+            --success: #A8D0E6;
+            --gradient: linear-gradient(135deg, var(--primary) 0%, #1a6485 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: var(--light);
+        }
+        
+        /* Header styling */
+        header {
+            background: var(--gradient);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .cta-button {
+            background-color: var(--accent);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Hero section */
+        .hero {
+            padding-top: 100px;
+            background: url('/api/placeholder/1200/600') center/cover;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            max-width: 600px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        
+        .motto {
+            font-style: italic;
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: var(--success);
+        }
+        
+        /* How it works section */
+        .how-it-works {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            color: #666;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .step-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .step-title {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        /* Benefits section */
+        .benefits {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .benefit-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            height: 100px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .benefit-content {
+            padding: 1.5rem;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        /* App showcase */
+        .app-showcase {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .app-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .app-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .app-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .app-features {
+            margin-top: 2rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-icon {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            min-width: 24px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .quote {
+            font-size: 3rem;
+            color: var(--primary);
+            height: 40px;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary);
+            margin-right: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ section */
+        .faq {
+            padding: 5rem 0;
+            background-color: white;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            background-color: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+        
+        .faq-question:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            padding: 5rem 0;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-content p {
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+        }
+        
+        .store-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .store-button {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            color: var(--dark);
+            padding: 0.7rem 1.5rem;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .store-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .store-icon {
+            font-size: 2rem;
+            margin-right: 0.8rem;
+        }
+        
+        .store-text {
+            text-align: left;
+        }
+        
+        .store-text small {
+            display: block;
+            font-size: 0.8rem;
+        }
+        
+        .store-text strong {
+            font-size: 1.1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            flex: 2;
+            min-width: 200px;
+        }
+        
+        .footer-logo h2 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .footer-links h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle, .motto {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <div class="logo-icon">
+                        <svg width="40" height="40" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="50" cy="50" r="45" stroke="white" stroke-width="5"/>
+                            <path d="M30 50 L50 30 L70 50 L50 70 Z" fill="white"/>
+                            <circle cx="50" cy="50" r="10" fill="#F76C6C"/>
+                        </svg>
+                    </div>
+                    Telmedo
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#how-it-works">Jak to działa</a></li>
+                    <li><a href="#benefits">Korzyści</a></li>
+                    <li><a href="#app">Aplikacja</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#" class="cta-button">Pobierz aplikację</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Teleporada i leki <br>w jednym miejscu</h1>
+                <p class="motto">Zdrowie na wyciągnięcie ręki.</p>
+                <p class="hero-subtitle">Od konsultacji lekarskiej do dostawy leków z lokalnych aptek - wszystko w jednej aplikacji.</p>
+                <a href="#" class="cta-button">Pobierz aplikację</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <h2 class="section-title">Jak działa Telmedo?</h2>
+            <p class="section-subtitle">Prosty proces w 4 krokach, od konsultacji medycznej do dostawy leków pod Twoje drzwi</p>
+            
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 10C20 14.4183 16.4183 18 12 18C7.58172 18 4 14.4183 4 10C4 5.58172 7.58172 2 12 2C16.4183 2 20 5.58172 20 10Z" stroke="#2E86AB" stroke-width="2"/>
+                            <path d="M12 14V10" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 6H12.01" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M8 22H16" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9 18L9 22" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 18L15 22" stroke="#2E86AB" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Zgłoś problem</h3>
+                    <p>Opisz swoje dolegliwości i wybierz dogodny termin teleporady w aplikacji Telmedo.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.1196 14.702L14.3293 18.4923C13.9436 18.8781 13.377 19.0712 12.8031 19.0141C12.2292 18.9571 11.7058 18.6566 11.3675 18.1847L5.01913 9.36954C4.68085 8.89766 4.57437 8.30193 4.73088 7.7459C4.88739 7.18987 5.28806 6.72717 5.8254 6.47326L7.08855 5.84142C7.59253 5.60359 8.1707 5.58168 8.69191 5.78081L11.0696 6.68156C11.109 6.69727 11.1533 6.69955 11.1945 6.68803C11.2358 6.67651 11.272 6.65178 11.2975 6.61725L12.9377 4.33078C13.2947 3.81965 13.8526 3.48944 14.4681 3.4215C15.0836 3.35357 15.6928 3.55425 16.1467 3.97478L16.8974 4.72554C17.2621 5.09033 17.4813 5.58052 17.5182 6.10092C17.5551 6.62132 17.4073 7.13916 17.1026 7.55246L15.9338 9.14977C15.8903 9.20769 15.8678 9.27981 15.8703 9.35372C15.8728 9.42764 15.9001 9.49817 15.9472 9.55264L18.2389 12.3281C18.684 12.8637 18.8791 13.5555 18.7679 14.2345C18.6568 14.9136 18.2503 15.5128 17.6557 15.8776L18.1196 14.702Z" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 11.5L12.2672 15.5" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Konsultacja</h3>
+                    <p>Połącz się z lekarzem przez wideorozmowę i otrzymaj profesjonalną diagnozę oraz e-receptę jeśli to konieczne.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19.5 5.5L18 12H6L4.5 5.5" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 3H5L6 7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 12L5.6 14.5C5.46091 15.4403 5.39136 15.9105 5.53451 16.2765C5.65879 16.596 5.88125 16.8637 6.17 17.0407C6.50281 17.25 6.97932 17.25 7.93233 17.25H16.0677C17.0207 17.25 17.4972 17.25 17.83 17.0407C18.1188 16.8637 18.3412 16.596 18.4655 16.2765C18.6086 15.9105 18.5391 15.4403 18.4 14.5L18 12" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.5 10V9.25C9.5 8.00736 10.5074 7 11.75 7V7C12.9926 7 14 8.00736 14 9.25V10" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19 7L21 3" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 20.5C16 21.3284 15.3284 22 14.5 22C13.6716 22 13 21.3284 13 20.5C13 19.6716 13.6716 19 14.5 19C15.3284 19 16 19.6716 16 20.5Z" stroke="#2E86AB" stroke-width="2"/>
+                            <path d="M11 20.5C11 21.3284 10.3284 22 9.5 22C8.67157 22 8 21.3284 8 20.5C8 19.6716 8.67157 19 9.5 19C10.3284 19 11 19.6716 11 20.5Z" stroke="#2E86AB" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Wybór apteki</h3>
+                    <p>Wybierz lokalną aptekę z naszej sieci partnerskiej i zamów leki bezpośrednio przez aplikację.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M5 13L9 17L19 7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 17H21V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V7" stroke="#2E86AB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="step-title">Dostawa</h3>
+                    <p>Odbierz leki z dostawą pod drzwi w ciągu 60 minut lub wybierz odbiór osobisty w wybranej aptece.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <h2 class="section-title">Dlaczego Telmedo?</h2>
+            <p class="section-subtitle">Kompleksowe podejście do Twojego zdrowia</p>
+            
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8V12L14.5 14.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M15.5 5.5C17.1569 5.5 18.5 4.15685 18.5 2.5V2.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M8.5 5.5C6.84315 5.5 5.5 4.15685 5.5 2.5V2.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20 14C21.4336 15.2335 21.7557 17.3892 20.4449 18.7673V18.7673C19.1968 20.0776 17.113 20.0776 15.8649 18.7673V18.7673L12 14.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 14C2.56636 15.2335 2.24433 17.3892 3.55507 18.7673V18.7673C4.80316 20.0776 6.88703 20.0776 8.13512 18.7673V18.7673L12 14.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M19 5.5C19 6.97 18.6551 8.35 18.0499 9.568C16.8172 12.083 14.6007 14 12 14C9.39934 14 7.18276 12.083 5.95009 9.568C5.34492 8.35 5 6.97 5 5.5C5 5.5 12 5.5 19 5.5Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="benefit-content">
+                        <h3>Oszczędność czasu</h3>
+                        <p>Konsultacja lekarska i dostawa leków bez wychodzenia z domu. Oszczędzasz czas na dojazdy i oczekiwanie w kolejkach.</p>
+                    </div>
+                </div>
+                
